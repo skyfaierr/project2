@@ -1,63 +1,64 @@
-#include <iostream>
+#include <iostream>       // Подключение библиотек
 using namespace std;
 
-int main()
+int main()                // Описание функции main - основной программы
 {
-	int array[6];
-	int arrayLength = 6;
+	int array[6];           // Объявление массива array из 6 элементов
+	int arrayLength = 6;    // Объявление и определение длины массива array
 	
-	cout << "Input array :" << endl;
-	for(int i = 0; i < 6; i++)
-		cin>> array[i] ;
+	cout << "Input array :" << endl;    // Приглашение ввести элементы массива
+	for(int i = 0; i < 6; i++)          // Цикл for для ввода значений каждого элемента массива пользователем
+		cin>> array[i] ;  
 	cout << endl;
 	
-	int option;
-	cout << "Choose option:\n";
-	cout << "1. Sort in descending order. \n2. Sort in Ascending order. \n0. Exit.\n";
+	int option;                         // Объявление пременной выбора
+	cout << "Choose option:\n";         // Приглашение ввести переменную выбора
+	cout << "1. Sort in descending order. \n2. Sort in Ascending order. \n0. Exit.\n";   // Описание возможных значениий
 	cin >> option;
 	
-    switch (option)
+    switch (option)                   // Множественный условный оператор
     {
-        case 1:
+          case 1:                       // Первый вариант, сортирующий массив по убыванию
             {
-            while(arrayLength--)
-	            {
-		        bool swapped = false;
-		        for(int i = 0; i < arrayLength; i++)
+            while(arrayLength--)                           // С помощью цикла while программа перемещает наибольшее число в массиве
+	              {                                          // в крайнее правое положение. При этом следующая итерация не будет рассматривать
+		            bool swapped = false;                      // занятое этим числом место, т.к. число будет де факто больше любого из новой итерации.
+		            for(int i = 0; i < arrayLength; i++)       // Таким образом происходит перемещение значений в массиве. 
 	            	{
-			        if(array[i] < array[i + 1])
-			            {
-			        	swap(array[i], array[i + 1]);
-				        swapped = true;
-			            }
+			              if(array[i] < array[i + 1])
+			                  {
+			        	        swap(array[i], array[i + 1]);
+				                swapped = true;
+			                  }
 		            }
-		        if(swapped == false)
-			        break;
-	            }        
+		            if(swapped == false)
+			          break;
+	              }  
+               break;
             }
-        case 2:
+          case 2:                       // Второй вариант, сортирующий массив по возрастанию
             {
-             while(arrayLength--)
-	            {
-		        bool swapped = false;
-		        for(int i = 0; i < arrayLength; i++)
-	            	{
-			        if(array[i] > array[i + 1])
-			            {
-			        	swap(array[i], array[i + 1]);
-				        swapped = true;
-			            }
-		            }
-		        if(swapped == false)
-			        break;
-	            } 
-	         break;
+             while(arrayLength--)                           // Во втором варианте программа аналогична, только в этот раз перемещается
+	                {                                         // наименьшее число в итерации в крайнее правое положение. И так до тех пор, 
+		              bool swapped = false;                     // пока не пересортируются все элементы в массиве.
+		              for(int i = 0; i < arrayLength; i++)  
+	            	  {
+                      if(array[i] > array[i + 1])
+			                    {
+			        	          swap(array[i], array[i + 1]);
+				                   swapped = true;
+			                    }
+		                  }
+		                 if(swapped == false)
+			               break;
+	               } 
+	          break;
             }
-        case 0: return 0;
-            }
+          case 0: return 0;           // Вариант выхода из программы
+      }
 	
 	
-	cout << "Sorted array :" << endl;
+	cout << "Sorted array :" << endl;   // Вывод преобразованного массива
 	for(int i = 0; i < 6; i++)
 		cout << array[i] << '\t';
 	cout << endl;
