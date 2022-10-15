@@ -3,11 +3,12 @@ using namespace std;
 
 int main()                // Описание функции main - основной программы
 {
-	int array[6];           // Объявление массива array из 6 элементов
-	int arrayLength = 6;    // Объявление и определение длины массива array
+	const int num = 10;
+	int array[num];           // Объявление массива array из 6 элементов
+	int arrayLength = num;    // Объявление и определение длины массива array
 	
 	cout << "Input array :" << endl;    // Приглашение ввести элементы массива
-	for(int i = 0; i < 6; i++)          // Цикл for для ввода значений каждого элемента массива пользователем
+	for(int i = 0; i < num; i++)          // Цикл for для ввода значений каждого элемента массива пользователем
 		cin>> array[i] ;  
 	cout << endl;
 	
@@ -59,7 +60,7 @@ int main()                // Описание функции main - основн
 	
 	
 	cout << "Sorted array :" << endl;   // Вывод преобразованного массива
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < num; i++)
 		cout << array[i] << '\t';
 	cout << endl;
 }
